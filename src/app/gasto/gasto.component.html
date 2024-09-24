@@ -1,0 +1,16 @@
+<div class="egreso">
+    <h2 class="egreso_titulo">Egresos</h2>
+       
+        
+        <div *ngFor="let gasto of gastos" class="elemento limpiarEstilos" >
+            <div class="elemento_descripcion">{{gasto.descripcion}}</div>
+            <div class="right limpiarEstilos">
+                <div class="elemento_valor">- {{gasto.valor | currency: "EUR" : "€" : "1.2-2"}}</div>
+                <div class="elemento_porcentaje">{{calcularPorcentaje(gasto) | percent}}</div>
+                <div class="elemento_eliminar">
+                    <button class="elemento_eliminar--btn"><i class="ion-ios-close-outline" (click)="eliminarGasto(gasto)"></i></button>
+                </div>
+            </div>
+        </div>      
+        
+</div>
