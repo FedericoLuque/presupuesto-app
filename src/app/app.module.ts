@@ -9,6 +9,7 @@ import { GastoComponent } from './gasto/gasto.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { IngresoServicio } from './ingreso/ingreso.servicio';
 import { GastoServicio } from './gasto/gasto.servicio';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GastoServicio } from './gasto/gasto.servicio';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [IngresoServicio,GastoServicio],
   bootstrap: [AppComponent]
