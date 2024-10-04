@@ -24,6 +24,11 @@ ngOnInit() {
       this.gastoServicio.setGasto(gastos);
     }
   )
+
+      // Suscribirse a los cambios en gastos
+      this.gastoServicio.gastosCambio.subscribe((gastos: Gasto[]) => {
+        this.gastos = gastos; // Actualizar la lista de gastos
+      });
 }
 
 eliminarGasto(gasto:Gasto){

@@ -20,7 +20,14 @@ export class IngresoComponent {
         this.ingresoServicio.setIngreso(ingresos);
       }
     )
+
+          // Suscribirse a los cambios en gastos
+          this.ingresoServicio.ingresoCambio.subscribe((ingresos: Ingreso[]) => {
+            this.ingresos = ingresos; // Actualizar la lista de gastos
+          });
   }
+
+
 
   eliminarRegistro(ingreso: Ingreso) {
     this.ingresoServicio.eliminar(ingreso);
