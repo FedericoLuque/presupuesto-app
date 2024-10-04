@@ -14,21 +14,6 @@ export class AppComponent {
   gastos: Gasto[] = [];
 
   ngOnInit() {
-    this.ingresoServicio.obtenerIngreso()
-    .subscribe(
-      (ingresos : Ingreso[]) => {
-        this.ingresos = ingresos;
-        this.ingresoServicio.setIngreso(ingresos);
-      }
-    );
-
-    this.gastoServicio.obtenerGastos()
-    .subscribe(
-      (gastos: Gasto[]) => {
-        this.gastos = gastos;
-        this.gastoServicio.setGasto(gastos);
-      }
-    );
 
           // Suscribirse a los cambios en gastos
           this.gastoServicio.gastosCambio.subscribe((gastos: Gasto[]) => {
@@ -45,7 +30,8 @@ export class AppComponent {
   constructor(
     private ingresoServicio: IngresoServicio,
     private gastoServicio: GastoServicio
-  ) {}
+  ) {
+  }
 
   getIngresoTotal() {
     let ingresoTotal: number = 0;

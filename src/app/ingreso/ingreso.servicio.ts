@@ -34,5 +34,7 @@ constructor(private dataService:DataServices){}
     eliminar(ingreso:Ingreso){
         const indice:number = this.ingresos.indexOf(ingreso);
         this.ingresos.splice(indice,1);
+        this.dataService.eliminarIngreso(indice);
+        this.dataService.guardarIngreso(this.ingresos);
     }
 }

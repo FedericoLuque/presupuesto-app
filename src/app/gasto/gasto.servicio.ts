@@ -31,5 +31,7 @@ guardarGasto(gasto:Gasto){
   eliminar(gasto: Gasto) {
     const indice: number = this.gastos.indexOf(gasto);
     this.gastos.splice(indice, 1);
+    this.dataService.eliminarGasto(indice);
+    this.dataService.guardarGasto(this.gastos);
   }
 }

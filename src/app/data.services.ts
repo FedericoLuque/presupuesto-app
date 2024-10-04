@@ -35,4 +35,22 @@ export class DataServices{
         return this.httpClient.get<Ingreso[]>('https://presupuesto-fa6aa-default-rtdb.firebaseio.com/ingresos.json')
     }
 
+
+    eliminarGasto(index: number){
+        const url = 'https://presupuesto-fa6aa-default-rtdb.firebaseio.com/gastos/' + index + '.json';
+        this.httpClient.delete(url).subscribe({
+          next: (response) => console.log("resultado de eliminar gasto: " + response),
+          error: (error) => console.log("Error eliminando gasto: " + error)
+        }
+      )
+      }
+
+      eliminarIngreso(index: number){
+        const url = 'https://presupuesto-fa6aa-default-rtdb.firebaseio.com/ingresos/' + index + '.json';
+        this.httpClient.delete(url).subscribe({
+            next: (response) => console.log("resultado de eliminar ingreso: " + response),
+            error: (error) => console.log("Error eliminando ingreso: " + error)
+          }
+        )
+      }
 }
