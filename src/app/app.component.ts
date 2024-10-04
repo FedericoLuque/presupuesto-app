@@ -36,9 +36,9 @@ export class AppComponent {
           });
 
           
-          // Suscribirse a los cambios en gastos
+          // Suscribirse a los cambios en ingresos
           this.ingresoServicio.ingresoCambio.subscribe((ingresos: Ingreso[]) => {
-            this.ingresos = ingresos; // Actualizar la lista de gastos
+            this.ingresos = ingresos; // Actualizar la lista de ingresos
           });
   }
 
