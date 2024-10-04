@@ -17,7 +17,13 @@ constructor(private gastoServicio:GastoServicio){
 }
 
 ngOnInit() {
-  this.gastos = this.gastoServicio.gastos;
+  this.gastoServicio.obtenerGastos()
+  .subscribe(
+    (gastos: Gasto[]) => {
+      this.gastos = gastos;
+      this.gastoServicio.setGasto(gastos);
+    }
+  )
 }
 
 eliminarGasto(gasto:Gasto){

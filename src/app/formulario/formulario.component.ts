@@ -26,8 +26,8 @@ export class FormularioComponent {
 
   agregarValor() {
     if(this.tipo === "ingresoOperacion")
-      this.ingresoSevicio.ingresos.push(new Ingreso(this.descripcionInput, this.valorInput));
+      this.ingresoSevicio.guardarIngreso(new Ingreso(this.descripcionInput, this.valorInput));
     else
-    this.gastoServicio.gastos.push(new Gasto(this.descripcionInput, this.valorInput));
+    this.gastoServicio.guardarGasto(new Gasto(this.descripcionInput, this.valorInput));
   }
 }

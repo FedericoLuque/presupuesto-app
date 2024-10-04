@@ -13,27 +13,46 @@ export class AppComponent {
   ingresos: Ingreso[] = [];
   gastos: Gasto[] = [];
 
+  ngOnInit() {
+    this.ingresoServicio.obtenerIngreso()
+    .subscribe(
+      (ingresos : Ingreso[]) => {
+        this.ingresos = ingresos;
+        this.ingresoServicio.setIngreso(ingresos);
+      }
+    );
+
+    this.gastoServicio.obtenerGastos()
+    .subscribe(
+      (gastos: Gasto[]) => {
+        this.gastos = gastos;
+        this.gastoServicio.setGasto(gastos);
+      }
+    )
+  }
+
   constructor(
     private ingresoServicio: IngresoServicio,
     private gastoServicio: GastoServicio
-  ) {
-    this.ingresos = ingresoServicio.ingresos;
-    this.gastos = gastoServicio.gastos;
-  }
+  ) {}
 
   getIngresoTotal() {
     let ingresoTotal: number = 0;
-    this.ingresos.forEach((ingreso) => {
-      ingresoTotal += ingreso.valor;
-    });
+    if (this.ingresos && this.ingresos.length > 0) {  // Verifica si hay ingresos
+      this.ingresos.forEach((ingreso) => {
+        ingresoTotal += ingreso.valor;
+      });
+    }
     return ingresoTotal;
   }
 
   getGastoTotal() {
     let gastoTotal: number = 0;
-    this.gastos.forEach((gasto) => {
-      gastoTotal += gasto.valor;
-    });
+    if (this.gastos && this.gastos.length > 0) {  // Verifica si hay gastos
+      this.gastos.forEach((gasto) => {
+        gastoTotal += gasto.valor;
+      });
+    }
     return gastoTotal;
   }
 

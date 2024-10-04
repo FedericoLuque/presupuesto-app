@@ -13,7 +13,13 @@ export class IngresoComponent {
   constructor(private ingresoServicio: IngresoServicio) {}
 
   ngOnInit() {
-    this.ingresos = this.ingresoServicio.ingresos;
+    this.ingresoServicio.obtenerIngreso()
+    .subscribe(
+      (ingresos : Ingreso[]) => {
+        this.ingresos = ingresos;
+        this.ingresoServicio.setIngreso(ingresos);
+      }
+    )
   }
 
   eliminarRegistro(ingreso: Ingreso) {

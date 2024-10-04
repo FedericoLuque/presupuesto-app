@@ -10,6 +10,8 @@ import { FormularioComponent } from './formulario/formulario.component';
 import { IngresoServicio } from './ingreso/ingreso.servicio';
 import { GastoServicio } from './gasto/gasto.servicio';
 import { FormsModule } from '@angular/forms';
+import { DataServices } from './data.services';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule
   ],
-  providers: [IngresoServicio,GastoServicio],
+  providers: [IngresoServicio,GastoServicio,DataServices,provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
